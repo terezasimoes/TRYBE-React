@@ -28,3 +28,9 @@ test("usuário não é encontrado", async () => {
         expect(error).toEqual({error: 'User with 6 not found'})
     };
 })
+
+// com async await junto com .rejects
+test("usuário não encontrado", async () => {
+    expect.assertions(1);
+    await expect(getUserName(6).reject.toEqual({error: 'User with 6 not found'}));
+})
