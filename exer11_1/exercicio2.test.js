@@ -24,7 +24,7 @@ test("getUserName", () => {
 // teste usuario não encontrado
 test("getUserName", () => {
     expect.assertions(1);
-    return getUserName(2).catch(erro => expect(error).toEqual({ error : 'User with 6 not found'}));
+    return getUserName(2).catch(error => expect(error).toEqual({ error : 'User with 6 not found'}));
 })
 
 

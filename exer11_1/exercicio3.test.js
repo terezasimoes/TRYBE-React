@@ -1,4 +1,4 @@
-const getUserName = require('/.exercicio2');
+const getUserName = require('./exercicio2');
 
 // testando usuário encontrado
 
@@ -25,7 +25,7 @@ test("usuário não é encontrado", async () => {
     try{
         await getUserName(6);
     }catch(error) {
-        expect(error).toEqual({error: 'User with 6 not found'})
+        expect(error).toBe({error: 'User with 6 not found'})
     };
 })
 
