@@ -16,7 +16,7 @@ const getUserName = require('./exercicio2');
 // usando .then e .catch
 test("getUserName", () => {
     expect.assertions(1); // Agora adicione o .then para pegar o resultado
-    return getUserName(4).then(name => expect(name).toBe('Mark'));
+    return (getUserName(4)).then(name => expect(name).toBe('Mark'));
     // tenho que retornar para o jest saber que é uma promisse
     // em seguida, adicionar a quantidade de expect esperadas por meio do comando expect.assertions().
 });
@@ -24,7 +24,7 @@ test("getUserName", () => {
 // teste usuario não encontrado
 test("getUserName", () => {
     expect.assertions(1);
-    return getUserName(2).catch(error => expect(error).toEqual({ error : 'User with 6 not found'}));
+    return (getUserName(2)).catch(error => expect(error).toEqual({ error : 'User with 6 not found'}));
 })
 
 
