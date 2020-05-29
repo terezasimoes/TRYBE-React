@@ -8,7 +8,7 @@ const task = (value) => {
   );
 }
 const compromissos = ['ganharLoteria', 'ViajarBrasil', 'ViajarAfrica', 'ViajarAsia', 'ViajarEuropa'];
-const tarefas = compromissos.map(tarefa => task(tarefa))
+{/*const tarefas = compromissos.map(tarefa => task(tarefa))*/}
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
         >
           Learn React
         </a>
-        {tarefas}
+        {/*{tarefas}*/}
       </header>
     </div>
   );
