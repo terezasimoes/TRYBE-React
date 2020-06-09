@@ -7,14 +7,14 @@ import Counter from './Counter'
 import Pokedex from './Pokedex';
 import data from './data';
 
-{/*function App() {
+function App() {
   return (
     <div className="App">
       <h1>Pokedex</h1>
       <Pokedex pokemons={data} />
     </div>
   );
-}*/}
+}
 
 {/*
 function App() {
@@ -25,13 +25,14 @@ function App() {
   );
 }*/}
 
+{/*}
 function App() {
   return (
     <div className="App">
       <Counter />
     </div>
   );
-}
+}*/}
 
 
 export default App;
