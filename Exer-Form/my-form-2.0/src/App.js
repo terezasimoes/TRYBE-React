@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import states from './brazilianStates';
 
 class App extends React.Component {
   constructor(props){
@@ -11,6 +12,7 @@ class App extends React.Component {
       cpf: '',
       address: '',
       city: '',
+      countryState: '',
     }
     // fazer o bind no construtor pq o construtor é chamado uma vez
     this.changeName = this.changeName.bind(this);
@@ -133,6 +135,17 @@ class App extends React.Component {
               onChange={this.handleChangeInput} 
               onBlur={this.handleCityName}
               />
+            </div>
+            <div>
+              Estado:
+              <select
+              name="coutryState"
+              required
+              value={this.state.countryState}
+              onChange={this.handleChangeInput}
+              >
+                {states.map((state) => <option key={state}>{state}</option>)}
+              </select>
             </div>
           </fieldset>
         </form>
