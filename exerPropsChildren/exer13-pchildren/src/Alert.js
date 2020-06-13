@@ -24,7 +24,7 @@ export default Alert;
 
 Alert.propTypes = {
   hideComponent: PropTypes.func.isRequired,
-  children: PropTypes.shape({
+  children: PropTypes.shape({ // shape é para objeto
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     timeSeconds: PropTypes.number.isRequired,
