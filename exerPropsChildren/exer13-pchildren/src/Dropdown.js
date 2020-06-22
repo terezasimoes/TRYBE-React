@@ -9,6 +9,7 @@ class Dropdown extends React.Component {
 
     this.state = {
       isOpen: false,
+      childrenitemId: this.props.list[0].id,
     }
     this.handleDropdown = this.handleDropdown.bind(this);
   }
@@ -18,9 +19,19 @@ class Dropdown extends React.Component {
       isOpen: !currentState.isOpen,
     }))
   }
+
+  handleItem(id){
+    this.setState({
+      childrenitemId: id,
+    })
+  }
   render(){
     const {children, list} = this.props
-    const {isOpen} = this.state;
+    const {isOpen, childrenitemId} = this.state;
+    // procurar pelo item que tem o id:
+    // const ckickedItem = list.find((elem) => elem.id === childrenitemId);
+    const {item} = list.find((elem) => elem.id === childrenitemId);
+
     return (
       <div className="list-container">
         <h1>
@@ -31,13 +42,16 @@ class Dropdown extends React.Component {
         className="dropdown-button"
         onClick={this.handleDropdown}
         >
-          {list[0].item}
+          {/* {list[0].item} */}
+          {/* {ckickedItem.item} */}
+          {item}
         </div>
         <div className={isOpen ? 'dropdown-menu' : 'dropdown-menu-hidden'}>
           {/*<p>{`Dropdwon ${isOpen ? 'aberto' : 'fechado'}`}</p>*/}
           {list.map(({id, item})=>( // uso id como cheve e o item pq tenho que mostrá-lo
             <div
             key={id}
+            onClick={() => this.handleItem(id)}
             >
               <span>{item}</span>
             </div>

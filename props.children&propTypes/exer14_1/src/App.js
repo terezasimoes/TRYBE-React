@@ -38,7 +38,8 @@ class App extends Component {
             hideComponent={this.changeShowComponent}
             contentTitle="Modal"
             content="Coloque qualquer coisa aqui."
-          />}
+          />
+          }
       </div>
     )
   }
