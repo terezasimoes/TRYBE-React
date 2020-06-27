@@ -3,9 +3,9 @@ import './App.css';
 // import rotas from './rotas'
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 //Importar as páginas
-import Home from './Home';
-import About from './About';
-import Users from './Users';
+import Home from './components/Home';
+import About from './components/About';
+import Users from './components/Users';
 
 
 class App extends React.Component {
