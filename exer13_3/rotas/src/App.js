@@ -18,7 +18,12 @@ class App extends React.Component {
       <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/users" component={Users} />
+          <Route
+          exact path="/users" 
+          render={(props) => <Users {...props} greetingMessage={"Good Morning"} />} 
+          />
+          {/* o render perminte um funçao para q a prop seja passada. 
+          no render={(props) são props que o react me fornece */}
       </Switch>        
   </BrowserRouter>
     );
@@ -28,10 +33,3 @@ class App extends React.Component {
 export default App;
 
 // O componente Switch é usado para encapsular um conjunto de rotas que você definiu via Route
-//<Switch>
-{/* <Route path="/about" component={About} />
-<Route path="/contact" component={Contact} />
-<Route path="/movies" component={Movies} />
-<Route path="/" component={Home} />
-</Switch>
- */}
