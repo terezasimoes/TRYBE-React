@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducao ao Redux</title>
+  <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+</head>
+
+<body>
+  <div>
+    Contador: <span id="value">0</span> 
+    <button id="increment">+</button>
+    <button id="decrement">-</button>
+    <button id="multi">incrementa 10</button>
+  </div>
+</body>
+<script>
+
+  // this.state = {
+  //   dataReducer: [],
+  //   counter: 0
+  // }
+
+  /* O combineReducers monta estados assim /\ 
+  const store = Redux.createStore(combineReducer({
+    user: userReducer,
+    products: productsReducer
+  }))
+  cada reducer gerencia seu state
+  */
+
+  
+
+  // combineReducers({
+  //   data,
+  //   counter
+  // })
+
+  function data(state = [], action) {
+
+  }
+
+   // Reducer recebe o state e retorna um novo state
+  // Action é um OBJETO, que deve ter TYPE
+    //cada reducer gerencia seu state
+  function counterReducer(state = 0, action) { // no reducer um valor inicial DEVE ser fornecido senao (undefined)
+    // Reducer recebe o state de toda minha APP -
+    // Action -> Oque deve ser atualizado e qual ação executada
+    console.log('Antes de alterar o state', state) // state atual
+    console.log('Ação dispachada', action)
+    switch (action.type) {
+      case 'INCREMENT':
+        return state + action.value;
+      case 'DECREMENT':
+        return state - action.value;
+      default:
+        return state;
+    }
+  }
+
+/* para criar store preciso do reduce(que gerencia o state da app)
+o store quarda o state LOGO preciso passar para o store o reduce 
+de forma que o state seja atualizado*/
+  const store = Redux.createStore(counterReducer);
+
+  document.getElementById('increment')
+    .addEventListener('click', () => {
+
+      const actionIncrement = { type: 'INCREMENT', value: 1 };
+      store.dispatch(actionIncrement)
+      //o payload não é obrigatório
+    })
+
+  document.getElementById('decrement')
+    .addEventListener('click', () => {
+
+      const actionDecrement = { type: 'DECREMENT', value: 1 };
+      store.dispatch(actionDecrement)
+      //store.dispatch({ type: 'DECREMENT', value: 1 })
+
+    })
+
+  document.getElementById('multi')
+    .addEventListener('click', () => {
+      store.dispatch({ type: 'INCREMENT', value: 10 })
+    })
+
+  store.subscribe(() => document.getElementById('value').innerHTML = store.getState().toString())
+/* na l.12 é o valor que deve ser atualizado */
+
+
+</script>
+
+</html>
+
